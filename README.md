@@ -14,7 +14,7 @@ The idea is very simple, get the video id you want to add
 
 #Tools used
 - [Vue.js](#https://collflix.vercel.app/query)
-- [NUXT JS]
+- NUXT JS
 
 ## Build Setup
 
