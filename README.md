@@ -1,12 +1,21 @@
 # videoPlatform
 
+![Screenshot](https://github.com/Edson2001/VideoPlatform/blob/main/static/Captura%20de%20Tela%20(18).png)
+
+Monte uma playlist com videos do youtube ao seu gosto.
+
+A ideia é bem simples, pegas o id do video que queres adiocionar
+![Screenshot](https://github.com/Edson2001/VideoPlatform/blob/main/static/Sem%20t%C3%ADtulo.png)
+
+- [O titulo](#https://collflix.vercel.app/query)
+- [Descrição](#https://collflix.vercel.app/find/791373)
+
+#Ferramentas utilizadas
+- [Vue.js](#https://collflix.vercel.app/query)
+- [NUXT JS]
+
 ## Build Setup
 
-```PHP
-<?php 
-echo "vvc";
-
-?>
 
 ```bash
 # install dependencies
