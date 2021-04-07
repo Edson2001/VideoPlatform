@@ -12,10 +12,10 @@
 
             <ul class="nav d-flex">
                 <li>
-                    <a href="">Cursos</a>
+                    <a href=""><i class="icofont-plus-circle"></i> Adicionar video</a>
                 </li>
                 <li>
-                     <a href="">Conta</a>
+                     <a href=""><i class="icofont-boy"></i> Edson</a>
                 </li>
             </ul>
 
@@ -28,7 +28,7 @@
 <script>
 import '../assets/css/header.css'
 export default {
-    name: "header"
+    name: "header-menu"
 }
 </script>
 

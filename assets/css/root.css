@@ -48,16 +48,38 @@ a, a:hover{
     height: 515px;
     padding: 20px;
     border-radius: 5px;
+    overflow-y: scroll;
 }
 .playlist .list{
     background-color: #29292e;
     max-width: 100%;
     padding: 30px;
     margin-top: 12px;
-}
-.playlist .list a{
     color: #fff;
+}
+.playlist .list:hover{
     
+    cursor: pointer;
+    
+}
+.playlist-name{
+    margin-bottom: 12px;
+}
+
+.video-description{
+    margin-top: 22px;
+    text-align: justify;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+  
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #29292e; 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 
 @media only screen and (max-width: 800px) {
