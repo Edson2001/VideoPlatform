@@ -5,6 +5,8 @@
 Build a playlist with youtube videos to your liking.
 
 The idea is very simple, get the video id you want to add
+
+
 ![Screenshot](https://github.com/Edson2001/VideoPlatform/blob/main/static/Sem%20t%C3%ADtulo.png)
 
 - [The title](#https://collflix.vercel.app/query)
