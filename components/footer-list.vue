@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
       <p>
-          <a href="https://github.com/Edson2001">GITHUB  &copy;Edson Dos Santos Bandola</a>
+          <a href="https://github.com/Edson2001">GITHUB  &copy; edson2001</a>
       </p>
   </div>
 </template>

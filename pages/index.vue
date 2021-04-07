@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav-bar></nav-bar>
+    <nav-bar ></nav-bar>
 
     <div class="container mt-5">
 
@@ -12,8 +12,8 @@
 
           <div class="playlist">
 
-           <list-video @click.native="loadVideo('foE1mO2yM04')"></list-video>
-           <list-video @click.native="loadVideo('jJPMnTXl63E')"></list-video>
+
+           <list-video v-for="(item, index) in videos" :key="index" :nameList="item.name" @click.native="loadVideo(item.link, item.description)"></list-video>
 
           </div>
 
@@ -21,10 +21,8 @@
 
         <div class="content">
           <iframe class="video-yout" height="515" :src="'https://www.youtube.com/embed/'+src+'?start=1'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <p class="video-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, laudantium dolor ducimus facilis aspernatur aperiam aliquam eius rerum explicabo? Sapiente molestias illum ullam unde sunt cumque porro, id eligendi? Amet!</p>
+          <p class="video-description">{{description}}</p>
         </div>
-
-        
 
       </div>
 
@@ -32,35 +30,74 @@
 
     <footer-list></footer-list>
 
+    
+    <modal></modal>
+
   </div>
 </template>
 
 <script>
+
+//components
 import navBar from "../components/header-menu.vue"
 import listVideo from "../components/list.vue"
 import footerList from "../components/footer-list.vue"
+import modal from "../components/modal.vue"
+
+
+//import css
 import '../assets/css/root.css'
+import '../assets/css/modal.css'
 import '../assets/icofont/icofont.css'
+
+//import vuex
+import {mapMutations} from 'vuex'
+
 export default {
   components:{
     navBar,
     listVideo,
-    footerList
+    footerList,
+    modal
   },
 
+  computed:{
+   
+    videos(){
+
+      return this.$store.state.vidoes;
+
+    }
+
+  },
+
+  created(){
+    this.$store.dispatch('GET_VALUES')
+    console.log(this.vidoes)
+  },
+
+ 
   data(){
     return {
-      src: 'mkyDIU5Yc2c'
+      src: 'mkyDIU5Yc2c',
+      description: ''
     }
   },
 
-
-
   methods:{
-    loadVideo(src){
+    loadVideo(src, description){
+      this.src = src,
+      this.description = description
+    },
 
-      this.src = src
+    ...mapMutations(
+      {
+        getValues: 'getValues'
+      }
+    ),
 
+    showDtat(){
+      this.getValues()
     }
   }
 }

@@ -5,6 +5,9 @@
     padding: 10px;
     text-align: center;
     margin-top: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .footer a{
     color: #fff;

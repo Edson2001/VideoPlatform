@@ -1,8 +1,14 @@
 <template>
     <div class="list">
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit
+            {{nameList}} 
         </p>
+        <a href="">
+            <i class="icofont-trash"></i>
+        </a>
+        <a href="">
+           <i class="icofont-eraser"></i>
+        </a>
     </div>
 
 </template>
@@ -10,7 +16,8 @@
 <script>
 export default {
 
-    name: 'list'
+    name: 'list',
+    props: ['nameList']
 
 }
 </script>

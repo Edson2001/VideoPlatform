@@ -12,10 +12,10 @@
 
             <ul class="nav d-flex">
                 <li>
-                    <a href=""><i class="icofont-plus-circle"></i> Adicionar video</a>
+                    <a @click.prevent="toogleModal" href=""><i class="icofont-plus-circle"></i> Adicionar video</a>
                 </li>
                 <li>
-                     <a href=""><i class="icofont-boy"></i> Edson</a>
+                    <a href=""><i class="icofont-boy"></i> Edson</a>
                 </li>
             </ul>
 
@@ -26,9 +26,20 @@
 </template>
 
 <script>
+import {mapMutations} from 'vuex'
 import '../assets/css/header.css'
+import '../assets/icofont/icofont.css'
 export default {
-    name: "header-menu"
+    name: "header-menu",
+
+    methods:{
+        ...mapMutations(
+        {
+            toogleModal: 'toogleModal'
+        }
+        )
+    }
+  
 }
 </script>
 
