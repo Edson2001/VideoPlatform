@@ -2,15 +2,15 @@
 
 ![Screenshot](https://github.com/Edson2001/VideoPlatform/blob/main/static/Captura%20de%20Tela%20(18).png)
 
-Monte uma playlist com videos do youtube ao seu gosto.
+Build a playlist with youtube videos to your liking.
 
-A ideia é bem simples, pegas o id do video que queres adiocionar
+The idea is very simple, get the video id you want to add
 ![Screenshot](https://github.com/Edson2001/VideoPlatform/blob/main/static/Sem%20t%C3%ADtulo.png)
 
-- [O titulo](#https://collflix.vercel.app/query)
-- [Descrição](#https://collflix.vercel.app/find/791373)
+- [The title](#https://collflix.vercel.app/query)
+- [description](#https://collflix.vercel.app/find/791373)
 
-#Ferramentas utilizadas
+#Tools used
 - [Vue.js](#https://collflix.vercel.app/query)
 - [NUXT JS]
 
