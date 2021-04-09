@@ -14,9 +14,6 @@
                 <li>
                     <a @click.prevent="toogleModal" href=""><i class="icofont-plus-circle"></i> Adicionar video</a>
                 </li>
-                <li>
-                    <a href=""><i class="icofont-boy"></i> Edson</a>
-                </li>
             </ul>
 
         </div>
