@@ -15,23 +15,23 @@
           </div>
 
           <div class="modal-card-body">
+
+            <label class="mb-3" for="">ID do vídeo ex: /watch?v=<strong style="color: red;">7HMlkIBRH60</strong></label>
+
+            <input placeholder="Insira apenas o ID do video" v-model="video.link" @change="getDataVideo(video.link)" type="text">
             
             <label class="mb-3" for="">Titulo do vídeo</label>
             <input v-model="video.name" type="text">
 
-            <label class="mb-3" for="">Link do vídeo ex: watch?v=<b style="color: red;">7HMlkIBRH60</b> Copie apenas essa parte do vídeo
-                do Youtube
-            </label>
-            <input v-model="video.link" type="text">
 
             <label class="mb-3" for="">Descrição  do vídeo</label>
             <textarea v-model="video.description" name="" id="" cols="30" rows="10"></textarea>
 
-            <button @click="upar" class="btn">Upar</button>
+            <button @click="upar" class="btn">Salvar</button>
 
           </div>
 
-          <div class="modal-card-foot">
+          <div class="modal-card-foot" >
             
           </div>
 
@@ -44,6 +44,8 @@
 
 <script>
 import {mapMutations} from 'vuex'
+import axios from 'axios'
+
 export default {
 
     data(){
@@ -52,12 +54,16 @@ export default {
                 name: '',
                 link: '',
                 description: ''
-            }
+            },
+            youtube_vars:{
+                // Insira aqui a chave de api do youtube.
+                api_key:"",
+            },
+
         }
     },
 
     mounted(){
-        console.log(this.video.name)
     },
     computed:{
     
@@ -75,6 +81,27 @@ export default {
             }
         ),
 
+        // Função que obtem os dados do video (nome e descricao)
+        getDataVideo(id){
+            var api_url ="https://www.googleapis.com/youtube/v3/videos?part=id,snippet&id="+id+"&key="+this.youtube_vars.api_key
+            axios.get(api_url).then((response) => {
+               if(response.status == 200){
+                    let data = response.data['items'][0]['snippet']
+                    this.video.name = data['title']
+                    this.video.description = data['description']        
+               }else{
+                alert("Wow, está inserindo o id certo ?");
+               }
+            })
+        },
+
+        // Função que limpa os campos ao fechar o modal
+        limparcampos(){
+            this.video.name =""
+            this.video.link =""
+            this.video.description =""
+        },
+
         upar(){
 
             if(this.video.name == '' || this.video.link == '' || this.video.description == ''){
@@ -88,6 +115,7 @@ export default {
                     this.$store.dispatch('SET_VALUES', this.video).then(response=>{
                 
                         if(response == true){
+                            this.limparcampos()
                             this.toogleModal()
                         }
                     })

@@ -8,7 +8,7 @@
 
         <div class="sidebar">
 
-          <h3  class="playlist-name">&#129300; Nome da playlist</h3>
+          <h3  class="playlist-name">&#129300; Playlist</h3>
 
           <div class="playlist">
 
