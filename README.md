@@ -20,7 +20,6 @@ The idea is very simple, get the video id you want to add
 ```bash
 # install dependencies
 $ npm install
-
 # serve with hot reload at localhost:3000
 $ npm run dev
 
