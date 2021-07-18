@@ -73,7 +73,6 @@ export default {
 
   created(){
     this.$store.dispatch('GET_VALUES')
-    console.log(this.vidoes)
   },
 
  
