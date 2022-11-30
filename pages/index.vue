@@ -1,22 +1,15 @@
 <template>
   <div>
-    <nav-bar ></nav-bar>
-
+    <nav-bar />
     <div class="container mt-5">
 
       <div class="player">
 
         <div class="sidebar">
-
           <h3  class="playlist-name">&#129300; Playlist</h3>
-
           <div class="playlist">
-
-
            <list-video v-for="(item, index) in videos" :key="index" :nameList="item.name" @click.native="loadVideo(item.link, item.description)"></list-video>
-
           </div>
-
         </div>
 
         <div class="content">
@@ -28,11 +21,8 @@
 
     </div>
 
-    <footer-list></footer-list>
-
-    
-    <modal></modal>
-
+    <footer-list/>
+    <modal />
   </div>
 </template>
 
@@ -64,9 +54,7 @@ export default {
   computed:{
    
     videos(){
-
       return this.$store.state.vidoes;
-
     }
 
   },
@@ -101,7 +89,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

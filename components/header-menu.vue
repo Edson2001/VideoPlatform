@@ -23,9 +23,11 @@
 </template>
 
 <script>
+
 import {mapMutations} from 'vuex'
 import '../assets/css/header.css'
 import '../assets/icofont/icofont.css'
+
 export default {
     name: "header-menu",
 
