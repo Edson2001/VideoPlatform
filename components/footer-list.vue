@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
       <p>
-          <a href="https://github.com/Edson2001">GITHUB  &copy; edson2001</a>
+        <a href="https://github.com/Edson2001">GITHUB  &copy; edson2001</a>
       </p>
   </div>
 </template>
@@ -12,7 +12,3 @@ export default {
     name: 'footer-list'
 }
 </script>
-
-<style>
-
-</style>

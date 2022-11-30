@@ -1,8 +1,5 @@
 <template>
     <div  :class="'modal '+ stateClass">
-
-
-      
       <div class="auto">
 
         <div class="modal-card">
@@ -30,11 +27,6 @@
             <button @click="upar" class="btn">Salvar</button>
 
           </div>
-
-          <div class="modal-card-foot" >
-            
-          </div>
-
         </div>
 
       </div>
@@ -44,7 +36,7 @@
 
 <script>
 import {mapMutations} from 'vuex'
-import axios from 'axios'
+import axios from '../plugins/axios'
 
 export default {
 
@@ -56,21 +48,14 @@ export default {
                 description: ''
             },
             youtube_vars:{
-                // Insira aqui a chave de api do youtube.
-                api_key:"",
+                api_key: process.env.VUE_ENV_API_KEY,
             },
 
         }
     },
-
-    mounted(){
-    },
     computed:{
-    
         stateClass(){
-
             return this.$store.state.classActual;
-
         }
     },
 
@@ -80,22 +65,23 @@ export default {
                 toogleModal: 'toogleModal'
             }
         ),
+        async getDataVideo(id){
 
-        // Função que obtem os dados do video (nome e descricao)
-        getDataVideo(id){
-            var api_url ="https://www.googleapis.com/youtube/v3/videos?part=id,snippet&id="+id+"&key="+this.youtube_vars.api_key
-            axios.get(api_url).then((response) => {
-               if(response.status == 200){
-                    let data = response.data['items'][0]['snippet']
-                    this.video.name = data['title']
-                    this.video.description = data['description']        
-               }else{
+            let api_url =id+"&key="+this.youtube_vars.api_key
+            try{
+
+                const response = await axios.get(api_url)
+
+                if(response.data){
+                    let [title, description] = response.data['items'][0]['snippet']
+                    this.video = {name: title, description: description, link: ''}
+                }
+            }catch(e){
                 alert("Wow, está inserindo o id certo ?");
-               }
-            })
+                console.log(e)
+            }
+            
         },
-
-        // Função que limpa os campos ao fechar o modal
         limparcampos(){
             this.video.name =""
             this.video.link =""
@@ -103,31 +89,23 @@ export default {
         },
 
         upar(){
-
             if(this.video.name == '' || this.video.link == '' || this.video.description == ''){
                 alert('Preencha todos os campos!')
-            }else{
-
-                if(this.video.link.length != 11){
-                    alert('O tem que ter  11 caracters')
-                }else{
-
-                    this.$store.dispatch('SET_VALUES', this.video).then(response=>{
-                
-                        if(response == true){
-                            this.limparcampos()
-                            this.toogleModal()
-                        }
-                    })
-
-                }
+                return
+            }
+            if(this.video.link.length != 11){
+                alert('O tem que ter  11 caracters')
+                return
             }
 
+            this.$store.dispatch('SET_VALUES', this.video).then(response=>{
+                if(response == true){
+                    this.limparcampos()
+                    this.toogleModal()
+                }
+            })
+            
         }
     }
 }
 </script>
-
-<style>
-
-</style>
